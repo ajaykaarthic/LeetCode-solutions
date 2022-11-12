@@ -27,7 +27,6 @@ class LinkedList:
         new_node = Node(data)
         new_node.next = mid.next
         mid.next = new_node
-    
 
     def insertAtEnd(self, data):
         new_node = Node(data)
@@ -38,7 +37,20 @@ class LinkedList:
         while temp.next:
             temp = temp.next
         temp.next = new_node
-
+    
+    def delete_at_begining(self):
+        temp = self.head
+        self.head = temp.next
+        temp = None
+    
+    def delete_mid_node(self, key):
+        temp = self.head
+        while temp:
+            if temp.data == key:
+                temp  = None
+                print('found')
+                return
+            temp = temp.next
 
 if __name__ == '__main__':
 
@@ -56,4 +68,5 @@ if __name__ == '__main__':
     second.next = third
     llist.insertAtEnd(3)
     llist.insert_at_mid(third,99)
+    llist.delete_mid_node(3)
     llist.printList()
